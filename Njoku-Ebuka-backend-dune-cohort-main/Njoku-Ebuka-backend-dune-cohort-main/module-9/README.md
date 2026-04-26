@@ -38,7 +38,7 @@ Special thanks to my instructors and the course team for providing excellent gui
 
 ## 📞 Contact
 
-**KELVIN ORDU**
+**NJOKU EBUKA*
 - Repository: Current location
 - Learning Focus: Full-Stack Web Development
 - Technologies: Python, Django, HTML/CSS, JavaScript
