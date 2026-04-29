@@ -4,7 +4,7 @@
 
 **STUDENT: NJOKU EBUKA**
 
-Hello! I'm NJOKU EBUKA, a dedicated learner passionate about web development and backend technologies. This repository showcases my journey through Module 9 of my programming course, where I built a complete e-commerce web application using Django.
+Hello! I'm NJOKU EBUKA, a dedicated learner passionate about Full Stack Development and Engineering. This repository showcases my journey through Module 9 of my programming course, where I built a complete e-commerce web application using Django.
 
 ## 📚 About This Module
 
@@ -36,7 +36,7 @@ This module focuses on **Django Web Framework** and **Full-Stack Web Development
 
 Special thanks to my instructors and the course team for providing excellent guidance throughout this learning journey. This project represents months of dedicated learning and practical application of Django concepts.
 
-## 📞 Contact
+## 📞 Contact +2348132837949
 
 **NJOKU EBUKA**
 - Repository: Current location
