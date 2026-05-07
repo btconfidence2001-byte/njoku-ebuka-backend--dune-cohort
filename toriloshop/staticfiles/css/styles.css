@@ -1,0 +1,233 @@
+/* Torilo Shop Custom Styles */
+
+/* Product List Page */
+.product-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: none;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+.product-card .card-title {
+    color: #1a1a1a;
+    font-weight: 600;
+    font-size: 1.1rem;
+    margin-bottom: 0.75rem;
+}
+
+.product-card .card-text {
+    color: #666;
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+
+.product-card .price {
+    color: #d4af37;
+    font-weight: 700;
+    font-size: 1.2rem;
+}
+
+.stock-badge {
+    font-size: 0.75rem;
+    padding: 0.35em 0.65em;
+}
+
+.product-actions {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 1rem;
+}
+
+.product-actions .btn {
+    flex: 1;
+    font-size: 0.85rem;
+}
+
+/* Product Detail Page */
+.product-detail-card {
+    border: none;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.product-detail-header {
+    border-bottom: 2px solid #d4af37;
+    padding-bottom: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.product-detail-header h1 {
+    color: #1a1a1a;
+    font-weight: 700;
+}
+
+.product-detail-info {
+    background-color: #fafafa;
+    border-radius: 8px;
+    padding: 1.5rem;
+}
+
+.product-detail-info p {
+    margin-bottom: 0.75rem;
+    color: #555;
+}
+
+.product-detail-info strong {
+    color: #1a1a1a;
+    min-width: 100px;
+    display: inline-block;
+}
+
+.product-detail-price {
+    font-size: 2rem;
+    color: #d4af37;
+    font-weight: 700;
+}
+
+.product-detail-stock {
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    font-weight: 600;
+}
+
+.stock-in {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+.stock-out {
+    background-color: #f8d7da;
+    color: #721c24;
+}
+
+.product-detail-actions {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.product-detail-actions .btn {
+    padding: 0.75rem 1.5rem;
+}
+
+/* Breadcrumb styling */
+.breadcrumb {
+    background-color: transparent;
+    padding: 0;
+    margin-bottom: 1.5rem;
+}
+
+.breadcrumb-item a {
+    color: #d4af37;
+    text-decoration: none;
+}
+
+.breadcrumb-item a:hover {
+    text-decoration: underline;
+}
+
+.breadcrumb-item.active {
+    color: #666;
+}
+
+/* Search form styling */
+.search-form .input-group {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.search-form .form-control {
+    border: none;
+    padding: 0.75rem 1rem;
+}
+
+.search-form .form-control:focus {
+    box-shadow: none;
+}
+
+.search-form .btn-dark {
+    background-color: #1a1a1a;
+    border-color: #1a1a1a;
+}
+
+.search-form .btn-dark:hover {
+    background-color: #d4af37;
+    border-color: #d4af37;
+}
+
+/* Page title */
+.page-title {
+    color: #1a1a1a;
+    font-weight: 700;
+    border-left: 4px solid #d4af37;
+    padding-left: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+/* Alert styling */
+.alert-info {
+    border-left: 4px solid #d4af37;
+    background-color: #fff;
+    border-color: #d4af37;
+    color: #555;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .product-card {
+        margin-bottom: 1rem;
+    }
+    
+    .product-detail-price {
+        font-size: 1.5rem;
+    }
+    
+    .product-detail-actions {
+        flex-direction: column;
+    }
+    
+    .product-detail-actions .btn {
+        width: 100%;
+    }
+}
+
+/* Product Images */
+.product-thumbnail {
+    height: 200px;
+    object-fit: cover;
+    width: 100%;
+    transition: transform 0.3s ease;
+}
+
+.product-card:hover .product-thumbnail {
+    transform: scale(1.05);
+}
+
+.product-image-container {
+    text-align: center;
+    background-color: #f5f5f5;
+    border-radius: 8px;
+    padding: 1rem;
+}
+
+.product-detail-image {
+    max-height: 400px;
+    object-fit: contain;
+    border-radius: 8px;
+}
+
+/* Placeholder for products without image */
+.card-img-top.product-thumbnail {
+    background-color: #e9ecef;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card-img-top.product-thumbnail + .card-body {
+    margin-top: 0;
+}

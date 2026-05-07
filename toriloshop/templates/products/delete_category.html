@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+{% block title %}Delete {{ category.name }} - Torilo Shop{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        <div class="card shadow">
+            <div class="card-header bg-dark text-white">
+                <h4 class="mb-0">Delete Category</h4>
+            </div>
+            <div class="card-body">
+                {% if product_count > 0 %}
+                <div class="alert alert-danger">
+                    <h5><i class="bi bi-exclamation-triangle"></i> Cannot Delete</h5>
+                    <p>This category contains <strong>{{ product_count }}</strong> product(s). Please remove or reassign all products before deleting this category.</p>
+                </div>
+                <a href="{% url 'category_list' %}" class="btn btn-outline-dark">Back to Categories</a>
+                {% else %}
+                <div class="alert alert-warning">
+                    <h5><i class="bi bi-exclamation-triangle"></i> Are you sure?</h5>
+                    <p>You are about to delete the following category. This action cannot be undone.</p>
+                </div>
+                
+                <div class="card bg-light mb-3">
+                    <div class="card-body">
+                        <h5>{{ category.name }}</h5>
+                        <p class="mb-1"><strong>Slug:</strong> {{ category.slug }}</p>
+                        {% if category.description %}
+                        <p class="mb-0"><strong>Description:</strong> {{ category.description }}</p>
+                        {% endif %}
+                    </div>
+                </div>
+                
+                <form method="post">
+                    {% csrf_token %}
+                    <div class="d-flex gap-2">
+                        <button type="submit" class="btn btn-danger">
+                            <i class="bi bi-trash"></i> Yes, Delete Category
+                        </button>
+                        <a href="{% url 'category_list' %}" class="btn btn-outline-secondary">
+                            Cancel
+                        </a>
+                    </div>
+                </form>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

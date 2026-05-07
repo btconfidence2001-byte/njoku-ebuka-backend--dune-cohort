@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ product.name }} - Torilo Shop{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-12">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{% url 'home' %}">Home</a></li>
+                <li class="breadcrumb-item"><a href="{% url 'product_list' %}">Products</a></li>
+                <li class="breadcrumb-item active">{{ product.name }}</li>
+            </ol>
+        </nav>
+    </div>
+</div>
+
+{% if product.image %}
+<div class="row mb-4">
+    <div class="col-12">
+        <div class="product-image-container">
+            <img src="{{ product.image.url }}" alt="{{ product.name }}" class="img-fluid product-detail-image">
+        </div>
+    </div>
+</div>
+{% endif %}
+
+<div class="row">
+    <div class="col-md-8">
+        <div class="card product-detail-card">
+            <div class="card-body">
+                <div class="product-detail-header">
+                    <h1 class="card-title">{{ product.name }}</h1>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="product-detail-info">
+                            <p><span class="product-detail-price">${{ product.price }}</span></p>
+                            <p><strong>Stock:</strong> {{ product.stock }}</p>
+                            <p><strong>Category:</strong> {{ product.category.name }}</p>
+                            <p><strong>Added:</strong> {{ product.created_at|date:"M d, Y" }}</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        {% if product.stock > 0 %}
+                            <span class="badge bg-success fs-6 product-detail-stock stock-in">In Stock</span>
+                        {% else %}
+                            <span class="badge bg-danger fs-6 product-detail-stock stock-out">Out of Stock</span>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card product-detail-card">
+            <div class="card-body">
+                <h5 class="card-title">Actions</h5>
+                <div class="product-detail-actions">
+                    <a href="{% url 'edit_product' product.pk %}" class="btn btn-outline-dark">
+                        <i class="bi bi-pencil"></i> Edit Product
+                    </a>
+                    <a href="{% url 'delete_product' product.pk %}" class="btn btn-outline-danger">
+                        <i class="bi bi-trash"></i> Delete Product
+                    </a>
+                    <a href="{% url 'product_list' %}" class="btn btn-outline-dark">Back to Products</a>
+                    <a href="{% url 'category_list' %}" class="btn btn-outline-dark">View Categories</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

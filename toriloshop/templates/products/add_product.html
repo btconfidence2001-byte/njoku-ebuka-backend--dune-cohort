@@ -1,0 +1,119 @@
+{% extends 'base.html' %}
+
+{% block title %}Add Product - Torilo Shop{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-8 col-lg-6">
+        <div class="card shadow">
+            <div class="card-header bg-dark text-white">
+                <h4 class="mb-0">Add New Product</h4>
+            </div>
+            <div class="card-body">
+                <form method="post" novalidate>
+                    {% csrf_token %}
+                    
+                    {# Non-field errors #}
+                    {% if form.non_field_errors %}
+                        <div class="alert alert-danger">
+                            {% for error in form.non_field_errors %}
+                                <p class="mb-0">{{ error }}</p>
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                    
+                    {# Name field #}
+                    <div class="mb-3">
+                        <label for="{{ form.name.id_for_label }}" class="form-label">
+                            Product Name <span class="text-danger">*</span>
+                        </label>
+                        {{ form.name }}
+                        {% if form.name.errors %}
+                            <div class="invalid-feedback d-block">
+                                {% for error in form.name.errors %}
+                                    {{ error }}
+                                {% endfor %}
+                            </div>
+                        {% endif %}
+                        <div class="form-text">Enter a unique product name (3-200 characters).</div>
+                    </div>
+                    
+                    {# Price field #}
+                    <div class="mb-3">
+                        <label for="{{ form.price.id_for_label }}" class="form-label">
+                            Price <span class="text-danger">*</span>
+                        </label>
+                        <div class="input-group">
+                            <span class="input-group-text">$</span>
+                            {{ form.price }}
+                        </div>
+                        {% if form.price.errors %}
+                            <div class="invalid-feedback d-block">
+                                {% for error in form.price.errors %}
+                                    {{ error }}
+                                {% endfor %}
+                            </div>
+                        {% endif %}
+                        <div class="form-text">Enter a positive price (e.g., 99.99).</div>
+                    </div>
+                    
+                    {# Stock field #}
+                    <div class="mb-3">
+                        <label for="{{ form.stock.id_for_label }}" class="form-label">
+                            Stock Quantity <span class="text-danger">*</span>
+                        </label>
+                        {{ form.stock }}
+                        {% if form.stock.errors %}
+                            <div class="invalid-feedback d-block">
+                                {% for error in form.stock.errors %}
+                                    {{ error }}
+                                {% endfor %}
+                            </div>
+                        {% endif %}
+                        <div class="form-text">Enter the available stock quantity (0 or more).</div>
+                    </div>
+                    
+                    {# Category field #}
+                    <div class="mb-3">
+                        <label for="{{ form.category.id_for_label }}" class="form-label">
+                            Category <span class="text-danger">*</span>
+                        </label>
+                        {{ form.category }}
+                        {% if form.category.errors %}
+                            <div class="invalid-feedback d-block">
+                                {% for error in form.category.errors %}
+                                    {{ error }}
+                                {% endfor %}
+                            </div>
+                        {% endif %}
+                        <div class="form-text">Select a category for this product.</div>
+                    </div>
+                    
+                    {# Form actions #}
+                    <div class="d-flex gap-2 mt-4">
+                        <button type="submit" class="btn btn-dark">
+                            <i class="bi bi-plus-circle"></i> Create Product
+                        </button>
+                        <a href="{% url 'product_list' %}" class="btn btn-outline-secondary">
+                            Cancel
+                        </a>
+                    </div>
+                </form>
+            </div>
+        </div>
+        
+        {# Help text #}
+        <div class="card mt-3">
+            <div class="card-body bg-light">
+                <h6><i class="bi bi-info-circle"></i> Validation Rules</h6>
+                <ul class="mb-0 small">
+                    <li><strong>Name:</strong> 3-200 characters, unique, letters/numbers/spaces/hyphens/underscores only</li>
+                    <li><strong>Price:</strong> Must be greater than 0 and less than 1,000,000</li>
+                    <li><strong>Stock:</strong> Must be 0 or greater, maximum 999,999</li>
+                    <li><strong>Category:</strong> Must be selected from the available options</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

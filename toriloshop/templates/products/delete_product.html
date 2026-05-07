@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block title %}Delete {{ product.name }} - Torilo Shop{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        <div class="card shadow">
+            <div class="card-header bg-dark text-white">
+                <h4 class="mb-0">Delete Product</h4>
+            </div>
+            <div class="card-body">
+                <div class="alert alert-warning">
+                    <h5><i class="bi bi-exclamation-triangle"></i> Are you sure?</h5>
+                    <p>You are about to delete the following product. This action cannot be undone.</p>
+                </div>
+                
+                <div class="card bg-light mb-3">
+                    <div class="card-body">
+                        <h5>{{ product.name }}</h5>
+                        <p class="mb-1"><strong>Price:</strong> ${{ product.price }}</p>
+                        <p class="mb-1"><strong>Stock:</strong> {{ product.stock }}</p>
+                        <p class="mb-0"><strong>Category:</strong> {{ product.category.name }}</p>
+                    </div>
+                </div>
+                
+                <form method="post">
+                    {% csrf_token %}
+                    <div class="d-flex gap-2">
+                        <button type="submit" class="btn btn-danger">
+                            <i class="bi bi-trash"></i> Yes, Delete Product
+                        </button>
+                        <a href="{% url 'product_detail' product.pk %}" class="btn btn-outline-secondary">
+                            Cancel
+                        </a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
